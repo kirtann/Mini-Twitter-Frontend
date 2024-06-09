@@ -1,4 +1,5 @@
 import React from "react";
+import AppLayout from "../components/layout/AppLayout";
 
 const Notifications = () => {
   return (
@@ -8,4 +9,4 @@ const Notifications = () => {
   );
 };
 
-export default Notifications;
+export default AppLayout()(Notifications);

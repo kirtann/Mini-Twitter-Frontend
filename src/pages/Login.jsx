@@ -21,14 +21,14 @@ const Login = () => {
   return (
     <div className="h-screen w-screen">
       <div className="flex h-full w-full justify-center items-center">
-        <div className="h-full basis-1/2 bg-black flex justify-center items-center">
+        <div className="h-full hidden md:flex basis-1/2 bg-black justify-center items-center">
           <img src={logo} className=" h-[70%] w-[70%] " alt="logo" />
         </div>
-        <div className="h-full basis-1/2 bg-black">
-          <div className="flex justify-center items-center h-full">
-            <div className="w-[70%]">
+        <div className="h-full w-full md:basis-1/2 bg-black">
+          <div className="flex justify-center items-center h-full w-full">
+            <div className="w-full mx-12 md:m-0 md:w-[70%]">
               <h1 className="text-6xl text-white font-bold text-center">
-                Happing now
+                {login ? "Welcome Back" : "Register"}
               </h1>
               {login ? (
                 <>

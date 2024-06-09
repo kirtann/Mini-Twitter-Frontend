@@ -1,4 +1,5 @@
 import React from "react";
+import AppLayout from "../components/layout/AppLayout";
 
 const Explore = () => {
   return (
@@ -8,4 +9,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default AppLayout()(Explore);
