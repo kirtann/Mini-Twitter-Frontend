@@ -14,7 +14,7 @@ const AppLayout = () => (WrappedComponent) => {
           </div>
         </div>
         <div className="basis-[44%] bg-red-900">
-          <WrappedComponent />
+          <WrappedComponent {...props} />
         </div>
         <div className="basis-[33%] bg-blue-900"></div>
       </div>

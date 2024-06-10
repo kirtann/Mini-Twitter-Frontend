@@ -3,19 +3,19 @@ import logo from "../assets/loginleft.jpg";
 
 const Login = () => {
   const [login, setLogin] = useState(true);
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log(username, password);
   };
 
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log(name, bio, email, password);
+    console.log(name, bio, username, password);
   };
 
   return (
@@ -35,18 +35,18 @@ const Login = () => {
                   <form className="my-24">
                     <div className="mb-4">
                       <label
-                        htmlFor="email"
+                        htmlFor="username"
                         className="block text-white text-sm font-bold mb-2"
                       >
-                        Email
+                        Username
                       </label>
                       <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        value={email}
-                        placeholder="Enter your email"
-                        onChange={(e) => setEmail(e.target.value)}
+                        type="username"
+                        name="username"
+                        id="username"
+                        value={username}
+                        placeholder="Enter your username"
+                        onChange={(e) => setUsername(e.target.value)}
                         className="w-full p-2 rounded bg-gray-800 text-white"
                       />
                     </div>
@@ -125,18 +125,18 @@ const Login = () => {
                     </div>
                     <div className="mb-4">
                       <label
-                        htmlFor="email"
+                        htmlFor="username"
                         className="block text-white text-sm font-bold mb-2"
                       >
-                        Email
+                        Username
                       </label>
                       <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        value={email}
-                        placeholder="Enter your email"
-                        onChange={(e) => setEmail(e.target.value)}
+                        type="username"
+                        name="username"
+                        id="username"
+                        value={username}
+                        placeholder="Enter your username"
+                        onChange={(e) => setUsername(e.target.value)}
                         className="w-full p-2 rounded bg-gray-800 text-white"
                       />
                     </div>

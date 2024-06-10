@@ -13,7 +13,7 @@ const SideNavbar = () => {
   return (
     <nav className="h-full w-full flex flex-col justify-evenly items-start ">
       <NavbarLinks icon={<FaXTwitter />} />
-      <NavbarLinks icon={<GoHome />} display={"Home"} />
+      <NavbarLinks icon={<GoHome />} display={"Home"} link="/home" />
       <NavbarLinks icon={<CiSearch />} display={"Explore"} link={"/explore"} />
       <NavbarLinks
         icon={<IoIosNotificationsOutline />}
