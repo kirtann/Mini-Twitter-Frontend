@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import logo from "../assets/loginleft.jpg";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { userExists } from "../redux/reducers/auth";
+import { server } from "../constants/config";
 
 const Login = () => {
   const [login, setLogin] = useState(true);
@@ -8,14 +13,56 @@ const Login = () => {
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
 
-  const handleLogin = (e) => {
+  const dispatch = useDispatch();
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(username, password);
+    const config = {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const { data } = await axios.post(
+        `${server}/api/v1/user/login`,
+        {
+          username: username,
+          password: password,
+        },
+        config
+      );
+      toast.success(data.message);
+
+      dispatch(userExists(data.user));
+    } catch (err) {
+      toast.error(err?.response.data.message || "An error occurred");
+    }
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log(name, bio, username, password);
+
+    const config = {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const { data } = await axios.post(
+        `${server}/api/v1/user/new`,
+        { name, bio, username, password },
+        config
+      );
+      toast.success(data.message);
+
+      dispatch(userExists(true));
+    } catch (error) {
+      toast.error(error?.response.data.message || "An error occurred");
+    }
   };
 
   return (

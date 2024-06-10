@@ -8,8 +8,11 @@ import { LuUser2 } from "react-icons/lu";
 import { RiSlashCommands2 } from "react-icons/ri";
 import { TbUsers } from "react-icons/tb";
 import NavbarLinks from "./NavbarLinks";
+import { useSelector } from "react-redux";
 
 const SideNavbar = () => {
+  const user = useSelector((state) => state.auth.user);
+
   return (
     <nav className="h-full w-full flex flex-col justify-evenly items-start ">
       <NavbarLinks icon={<FaXTwitter />} />
@@ -24,7 +27,11 @@ const SideNavbar = () => {
       <NavbarLinks icon={<RiSlashCommands2 />} display={"Grok"} />
       <NavbarLinks icon={<TbUsers />} display={"Communities"} />
       <NavbarLinks icon={<FaXTwitter />} display={"Premium"} />
-      <NavbarLinks icon={<LuUser2 />} display={"Profile"} />
+      <NavbarLinks
+        icon={<LuUser2 />}
+        display={"Profile"}
+        link={`/profile/${user.username}`}
+      />
       <NavbarLinks icon={<CiCircleMore />} display={"More"} />
       <div className=" h-[13%] w-[120%] -ms-[10%]">
         <button
